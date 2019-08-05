@@ -1,6 +1,6 @@
 {
   "name": "@ri7nz/common",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "[Utils] Common & Basic JavaScript Function.",
   "source": "src/index.js",
   "main": "lib/index.js",
