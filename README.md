@@ -31,7 +31,7 @@ Type data checking on the fly.
 
 ```javascript
 const myObject = {x:1, y:3}
-const thisIs = is(myObject) 
+const thisIs = is(myObject)
 // expect(thisIs).toBe("Object")
 ```
 
