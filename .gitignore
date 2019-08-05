@@ -3,3 +3,4 @@ coverage/
 *.swp
 *.swp
 node_modules/
+lib/
