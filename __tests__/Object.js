@@ -1,5 +1,4 @@
-// eslint-disable-next-line
-import { has, unique, getByProp, equal } from "Object";
+import { has, getByProp, equal } from "Object";
 
 describe("[Object.getByProp] Test", () => {
   each([
@@ -37,33 +36,6 @@ describe("[Object.has] Test", () => {
       expect(result)[expected ? "toBeTruthy" : "toBeFalsy"]();
       expect(tryHas).toHaveBeenCalledTimes(1);
       expect(tryHas).toHaveBeenCalledWith(test, ...param);
-    }
-  );
-});
-
-describe("[Object.unique] Test:", () => {
-  each([
-    // case 1
-    [
-      [
-        { x: 1, y: 2, z: 3 },
-        { x: 1, y: 2, z: 3 },
-        { x: 1, y: 2, z: 3 },
-        { x: 1, y: 2, z: 3 }
-      ],
-      [{ x: 1, y: 2, z: 3 }]
-    ],
-    // case 2
-    [[{ x: 1 }, { x: 2 }, { x: 3 }, { x: 2 }], [{ x: 1 }, { x: 2 }, { x: 3 }]]
-  ]).test(
-    `should return 1 item in duplicate item of array
-        %j
-        %j
-    `,
-    (duplicateItemInArray, expectedArrayUnique) => {
-      const tryUnique = jest.fn(unique);
-      const result = tryUnique(duplicateItemInArray, "x");
-      expect(result).toStrictEqual(expectedArrayUnique);
     }
   );
 });

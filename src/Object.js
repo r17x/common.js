@@ -1,4 +1,8 @@
+/**
+ * @module Object
+ */
 import { isEqual } from "./Boolean";
+
 /**
  * @name has
  * @description
@@ -7,6 +11,7 @@ import { isEqual } from "./Boolean";
  * @param {String} propertyName
  * @return {Boolean}
  * @example
+ * @since 0.0.2
  *
  * const Person = {name: 'John Lennon', band: 'Beatles', genre: "rock n roll"}
  *
@@ -21,6 +26,7 @@ export const has = Function.call.bind(Object.hasOwnProperty);
  * @param {Object} objX
  * @param {Object} objY
  * @return {Bool}
+ * @since 0.0.2
  *
  * This function for simple json object compare
  * you can't compare specific JSON like NODE Or
@@ -30,28 +36,13 @@ export const equal = (objX, objY) =>
   JSON.stringify(objX) === JSON.stringify(objY);
 
 /**
- * @name unique
- * @description Get Unique value in array.
- * @function
- * @param {Array} arrs
- * @param {String} prop as properties
- * @return {Array} new array
- */
-export const unique = (arrs, prop) =>
-  arrs.filter(
-    (obj, pos, arr) =>
-      arr
-        .map(mapObj => getByProp(mapObj, prop))
-        .indexOf(getByProp(obj, prop)) === pos
-  );
-
-/**
  * @name getByProp
  * @description Get value of object by property name.
  * @function
  * @param {Object} obj - to find value in this object
  * @param {String} prop - property name in obj
  * @return {Any} - value in object by property name
+ * @since 0.0.2
  */
 export const getByProp = (obj, prop) =>
   isEqual(prop, "String")
@@ -61,6 +52,5 @@ export const getByProp = (obj, prop) =>
 export default {
   equal,
   getByProp,
-  unique,
   has
 };
