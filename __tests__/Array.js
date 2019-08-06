@@ -1,4 +1,4 @@
-import { unique } from "Object";
+import { unique } from "Array";
 describe("[Object.unique] Test:", () => {
   each([
     // case 1
