@@ -28,7 +28,8 @@
     "test:ci": "cross-env CI=true yarn test --coverage --colors",
     "test:lint": "eslint ./{src,__tests__}/**/*.js",
     "fixreadme": "node -e 'var fs=require(\"fs\");fs.writeFileSync(\"README.md\", fs.readFileSync(\"README.md\", \"utf8\").replace(/^-   /gm, \"- \"))'",
-    "docs": "documentation readme src/**/*.js -q --section Documentation && yarn fixreadme"
+    "docs": "documentation readme src/**/*.js -q --section Documentation && yarn fixreadme",
+    "lint-staged": "lint-staged"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -39,7 +40,9 @@
     "eslint": "6.1.0",
     "eslint-plugin-jest": "22.15.0",
     "gzip-size-cli": "3.0.0",
+    "husky": "3.0.2",
     "jest": "24.8.0",
+    "lint-staged": "^9.2.1",
     "microbundle": "0.11.0",
     "strip-json-comments-cli": "1.0.1"
   },
@@ -76,5 +79,16 @@
       "<rootDir>/src/**/*.js"
     ],
     "verbose": true
+  },
+  "lint-staged": {
+    "*.js": [
+      "yarn lint",
+      "yarn test:ci --findRelatedTests"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
